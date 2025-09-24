@@ -12,6 +12,7 @@
   
 ## Circuit Diagram:
 
+<img width="1903" height="903" alt="image" src="https://github.com/user-attachments/assets/06d101c5-dd27-48d4-880b-b1806ec22748" />
 
 ## Theory :
 
@@ -66,10 +67,55 @@ o	The middle point (between LDR and resistor) connects to the Arduino analog inp
 
 ## Code:
 
+// C++ code
 
+//
+
+int LCD_VAR = 0;
+
+
+void setup()
+
+{
+
+  pinMode(A0, INPUT);
+  
+  Serial.begin(9600);
+  
+  pinMode(10, OUTPUT);
+
+}
+
+void loop()
+
+{
+
+  LCD_VAR = analogRead(A0);
+  
+  Serial.println(LCD_VAR);
+  
+  if (LCD_VAR > 500) {
+  
+	digitalWrite(10, HIGH);
+  
+  } else {
+  
+	digitalWrite(10, LOW);
+  
+  }
+  
+  delay(10); // Delay a little bit to improve simulation performance
+
+}
 
 ## Output:
  
 
 
+https://github.com/user-attachments/assets/ade680de-7dc7-4164-81f2-d6587b5b83ea
+
+
+
 ## Result:
+
+Verified the automatic street light using LDR value : 974 light glows.
